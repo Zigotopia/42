@@ -14,5 +14,30 @@
 
 void ft_putnbr(int nb)
 {
-	
+	if(nb == 0)
+  {
+    write(1, "0", 1);
+    return;
+  }
+  if(nb < 0 )
+  {
+    write(1, "-", 1);
+    nb = -nb;  
+  }
+
+  if(nb ==-2147483648)
+  {
+    write(1, "-2147483648", 11);
+  }
+
+  char str[12]; 
+    int i = 0;
+
+    while (nb > 0) {
+        str[i++] = (nb % 10) + '0'; 
+        nb = nb / 10; 
+    }
+    while (--i >= 0) {
+        write(1, &str[i], 1);
+    }
 }
